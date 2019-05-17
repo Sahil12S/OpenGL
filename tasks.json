@@ -1,0 +1,28 @@
+// Task for VSCode
+{
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "build",
+            "command": "g++",
+            "args": [
+                "${file}",
+                "-l",
+                "glfw",
+                "-l",
+                "GL"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "run",
+            "command": "./a.out",
+            "problemMatcher": [],
+            "dependsOn": [
+                "build"
+            ]
+        }
+    ],
+    "version": "2.0.0"
+}
