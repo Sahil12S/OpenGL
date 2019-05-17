@@ -8,6 +8,8 @@
             "args": [
                 "${file}",
                 "-l",
+                "GLEW",
+                "-l",
                 "glfw",
                 "-l",
                 "GL"
