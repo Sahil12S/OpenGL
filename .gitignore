@@ -1,0 +1,6 @@
+# VSCode specific folders
+.vscode/
+build/
+
+# Executable file
+a.out
