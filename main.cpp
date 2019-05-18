@@ -29,7 +29,21 @@ int main(int argc, char const *argv[])
         std::cout << "ERROR: glewInit()" << '\n';
     }
 
+    // Check version of openGL we are using
     std::cout << glGetString( GL_VERSION ) << '\n';
+
+    float positions[6] = {
+        -0.5f, -0.5,
+         0.0f, 0.5f,
+         0.5f, -0.5f
+    };
+
+    unsigned int buffer;        // To store id of buffer
+    glGenBuffers( 1, &buffer );     // Generate 1 buffer
+    glBindBuffer( GL_ARRAY_BUFFER, buffer );    // What kind of buffer and the ID
+    // But where is size of buffer?
+    glBufferData( GL_ARRAY_BUFFER, 6 * sizeof( float ), positions, GL_STATIC_DRAW );
+
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
@@ -37,11 +51,8 @@ int main(int argc, char const *argv[])
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glBegin( GL_TRIANGLES );
-        glVertex2f( -0.5f, -0.5f );
-        glVertex2f( 0.0f, 0.5f );
-        glVertex2f( 0.5f, -0.5f );
-        glEnd();
+        // Draw what's we have bounded earlier
+        glDrawArrays( GL_TRIANGLES, 0, 3 );
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
