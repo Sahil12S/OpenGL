@@ -1,6 +1,10 @@
 # OpenGL
 Learning OpenGL  
 
+# Resources
+1. https://learnopengl.com/Getting-started/OpenGL
+2. http://docs.gl/
+
 # Setting up
 Install GLFW.  
 For Fedora
@@ -22,4 +26,8 @@ Install GLEW devel
 ```console
 foo@bar~$ sudo dnf insall glew-devel
 ```
-Glew is useful to utilize latest version of OpenGL provided by our GPU rather than might be older version provided by OS.
+Glew is useful to utilize latest version of OpenGL provided by our GPU rather than might be older version provided by OS.  
+With GLEW, to compile
+```console
+foo@bar:~$ g++ -l GLEW -l glfw -l GL main.cpp
+```
